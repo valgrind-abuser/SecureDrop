@@ -4,7 +4,7 @@ import os
 USERS_FILE = "users.json"
 
 def print_commands():
-    print("add\nhelp\nsend\n ist\nexit\n")
+    print("add\nhelp\nsend\nlist\nexit\n")
     return
 def file_send(target_email):
     print("Sending file...")
