@@ -1,17 +1,26 @@
-[
-    {
-        "name": "Josh Platt",
-        "email address": "josh_platt@uml.edu",
-        "password": "password"
+{
+    "zach_bum@uml.edu": {
+        "name": "Zach Bum",
+        "password": "Cockroach",
+        "contacts": [],
+        "Pending Request": []
     },
-    {
-        "name": "meg chen",
-        "email address": "meg_chen@uml.edu",
-        "password": "password"
+    "jay@example.com": {
+        "name": "Jay Patel",
+        "password": "Password123",
+        "contacts": [],
+        "Pending Request": []
     },
-    {
-        "name": "jp",
-        "email address": "gumo@chem@cs.uml.edu",
-        "password": "Kroger"
+    "umlcafe@uml.edu": {
+        "name": "slop eater",
+        "password": "chicken",
+        "contacts": [],
+        "Pending Request": []
+    },
+    "test2@uml.edu": {
+        "name": "test2",
+        "password": "123",
+        "contacts": [],
+        "Pending Request": []
     }
-]
+}
