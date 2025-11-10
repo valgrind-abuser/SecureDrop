@@ -1,5 +1,6 @@
 import json
 import os
+import socket
 
 USERS_FILE = "users.json"
 
@@ -9,13 +10,14 @@ def print_commands():
 def file_send(current_user, args):
     if len(args) < 2:
         print("Command format is send <email address> <filename> ")
+        return
     target_email, file_name = args
     print(f"Sending {file_name} to {target_email}...")
     return 0
 def online_list():
     return []
 def exit_secure_drop():
-    return False
+    exit(1)
 
 
 def load_users():
@@ -102,17 +104,24 @@ def user_login():
 
 def user_menu(current_user):
     print(f"Welcome to SecureDrop!\nType "'help'" for commands")
-    running = True
-    while running:
+    while True:
+        clientsocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        clientsocket.connect(('localhost', 8080))
+        clientsocket.send('Ping From Me.')
         user_input = input("> ").strip()  # strip just removes leading/trialing whitespaces
         if not user_input:
             continue
         parts = user_input.split()      # split input into cmd and there arguments for that cmd
         cmd, *args = parts
         if cmd in commands:
-            result = commands[cmd](current_user, args)
-            if result is False:
-                running = False
+            if cmd == "help":
+                commands[cmd]()
+                continue # go back to top of loop
+            elif cmd == "exit":
+                commands[cmd]()
+                continue
+                # dont need contiue because this will exit program
+            commands[cmd](current_user, args)
 
         else:
             print(f"Not valid command. ")

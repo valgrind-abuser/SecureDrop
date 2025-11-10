@@ -21,6 +21,8 @@
         "name": "test2",
         "password": "123",
         "contacts": [],
-        "Pending Request": []
+        "Pending Request": [
+            "umlcafe@uml.edu"
+        ]
     }
 }
